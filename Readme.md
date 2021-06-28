@@ -1,0 +1,1 @@
+Hello, this is a quick script I threw together to automatically generate the HTML tags for rainbow text in valorant. Written in python 3.9
