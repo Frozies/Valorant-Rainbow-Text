@@ -12,7 +12,9 @@ export default function Home() {
 
 
     function rainbowify(text) {
-        let count = 0
+        let min = 0
+        let max = 4
+        let count = Math.floor(Math.random() * (max - min) + min)
         let output = "";
 
         for (let i in text) {
