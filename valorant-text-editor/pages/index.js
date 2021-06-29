@@ -18,7 +18,7 @@ export default function Home() {
         let output = "";
 
         for (let i in text) {
-            if (i == " ") continue
+            if (text[i] == " ") continue
 
             if (count == 0) {
                 output = output + "<enemy>" + text[i] + "</>"
