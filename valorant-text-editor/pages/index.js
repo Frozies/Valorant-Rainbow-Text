@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import React, {useEffect, useState} from "react";
-import AdSense from 'react-adsense';
+import AdsenseWidget from "../components/AdsenseWidget";
 
 export default function Home() {
     const [input, setInput] = useState("");
@@ -57,7 +57,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
 
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script data-ad-client="ca-pub-3587708456989785" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
       <Head>
         <title>Create Next App</title>
@@ -71,13 +71,7 @@ export default function Home() {
           Welcome to my Valorant text editor!
         </h1>
 
-          <AdSense.Google
-              client='ca-pub-7292810486004926'
-              slot='7806394673'
-              style={{ display: 'block' }}
-              layout='in-article'
-              format='fluid'
-          />
+          <AdsenseWidget/>
 
           <div>
               <h2>
