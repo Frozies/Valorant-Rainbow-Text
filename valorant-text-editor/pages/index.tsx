@@ -1,15 +1,9 @@
-import Head from 'next/head'
-// @ts-ignore
 import styles from '../styles/Home.module.css';
 import React, {useEffect, useState} from "react";
 import AdsenseWidget from "../components/AdsenseWidget";
 import {Button, Container, Grid, TextField} from "@material-ui/core";
 import {christmasify, rainbowify } from '../components/TextIterator';
 
-enum colors {
-    red = "<enemy>",
-
-}
 
 export default function Home() {
     const [input, setInput] = useState("");
