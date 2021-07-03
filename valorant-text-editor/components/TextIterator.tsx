@@ -1,13 +1,14 @@
 import React, {useState} from "react";
 import {Button, Container, Grid, TextField} from "@material-ui/core";
 
-export function rainbowify(text: any) {
+export function rainbowify(text: String) {
     let min = 0
     let max = 4
-    let count = Math.floor(Math.random() * (max - min) + min)
+    let count = 0
     let output = "";
 
     for (let i in text) {
+        //Skip Spaces
         if (text[i] == " ") {
             output = output + text[i]
             continue
@@ -26,10 +27,9 @@ export function rainbowify(text: any) {
             continue
         }
         //GREEN
-        if (count == 1) {
+        if (count == 2) {
             output = output + "<notification>" + text[i] + "</>"
-            // count += 1
-            count = 0
+            count += 1
             continue
         }
         //BLUE
@@ -45,14 +45,13 @@ export function rainbowify(text: any) {
             continue
         }
     }
-    console.log(output)
     return output
 }
 
-function christmas(text: { [x: string]: string; }) {
+export function christmasify(text: String) {
     let min = 0
-    let max = 4
-    let count = Math.floor(Math.random() * (max - min) + min)
+    let max = 1
+    let count = 0
     let output = "";
 
     for (let i in text) {
@@ -71,12 +70,10 @@ function christmas(text: { [x: string]: string; }) {
         //GREEN
         if (count == 1) {
             output = output + "<notification>" + text[i] + "</>"
-            // count += 1
             count = 0
             continue
         }
     }
-    console.log(output)
     return output
 }
 
@@ -100,3 +97,43 @@ function colorText(inputText: { [x: string]: string; }, [colors]: [string]) {
 
     return output
 }
+
+export function TextIterator(inputColor: string) {
+    const [input, setInput] = useState("");
+    const [output, setOutput] = useState("");
+
+    const handleInputChange = (e: { currentTarget: { value: React.SetStateAction<string>; }; }) => {
+        setInput(e.currentTarget.value);
+    };
+
+    return (
+        <div>
+            <div>
+                <Grid container
+                      direction="column"
+                      justify="center"
+                      alignItems="center">
+                    <TextField id={"userInput"} onChange={handleInputChange} value={input} variant={"filled"}
+                               style={{
+                                   padding: '0.5rem',
+                               }}/>
+
+                    <Button variant={"contained"} color={"primary"}
+                            onClick={() => {
+
+                            }} >
+                        Rainbowify!
+                    </Button>
+                </Grid>
+
+
+            </div>
+
+            <Container>
+                {output}
+            </Container>
+        </div>
+    )
+}
+
+module.exports.default = [TextIterator, rainbowify(new String), christmasify(new String)]

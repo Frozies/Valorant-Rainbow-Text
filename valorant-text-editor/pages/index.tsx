@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css';
 import React, {useEffect, useState} from "react";
 import AdsenseWidget from "../components/AdsenseWidget";
 import {Button, Container, Grid, TextField} from "@material-ui/core";
+import {christmasify, rainbowify } from '../components/TextIterator';
 
 enum colors {
     red = "<enemy>",
@@ -51,10 +52,18 @@ export default function Home() {
                                  }}/>
 
                       <Button variant={"contained"} color={"primary"}
-                              onClick={() => {
-
+                              onClick={()=>{
+                                  setOutput(rainbowify(input))
+                                  console.log(rainbowify(input))
                               }} >
                           Rainbowify!
+                      </Button>
+                      <Button variant={"contained"} color={"primary"}
+                              onClick={()=>{
+                                  setOutput(christmasify(input))
+                                  console.log(rainbowify(input))
+                              }} >
+                          Christmasify!
                       </Button>
                   </Grid>
 
