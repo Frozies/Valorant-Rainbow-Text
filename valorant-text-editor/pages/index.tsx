@@ -75,7 +75,7 @@ export default function Home() {
                                   navigator.clipboard.writeText(RWBOutput);
                                   console.log(RWBOutput);
                               }} >
-                          Christmasify!
+                          Red, White, & Blue
                       </Button>
                   </Grid>
 
