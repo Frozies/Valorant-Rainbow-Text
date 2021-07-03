@@ -9,9 +9,11 @@ export default function Home() {
     const [input, setInput] = useState("");
     const [output, setOutput] = useState("");
 
+    //When the input changes in the div, set the inputstate
     const handleInputChange = (e: { currentTarget: { value: React.SetStateAction<string>; }; }) => {
         setInput(e.currentTarget.value);
     };
+
 
 
   return (
@@ -47,15 +49,21 @@ export default function Home() {
 
                       <Button variant={"contained"} color={"primary"}
                               onClick={()=>{
-                                  setOutput(rainbowify(input))
-                                  console.log(rainbowify(input))
+                                  let rainbowOutput = rainbowify(input)
+                                  setOutput(rainbowOutput)
+
+                                  navigator.clipboard.writeText(rainbowOutput);
+                                  console.log(rainbowOutput);
                               }} >
                           Rainbowify!
                       </Button>
                       <Button variant={"contained"} color={"primary"}
                               onClick={()=>{
-                                  setOutput(christmasify(input))
-                                  console.log(rainbowify(input))
+                                  let christmasOutput = christmasify(input);
+                                  setOutput(christmasOutput)
+
+                                  navigator.clipboard.writeText(christmasOutput);
+                                  console.log(christmasOutput);
                               }} >
                           Christmasify!
                       </Button>
