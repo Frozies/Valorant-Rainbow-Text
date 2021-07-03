@@ -2,7 +2,7 @@ import styles from '../styles/Home.module.css';
 import React, {useEffect, useState} from "react";
 import AdsenseWidget from "../components/AdsenseWidget";
 import {Button, Container, Grid, TextField} from "@material-ui/core";
-import {christmasify, rainbowify } from '../components/TextIterator';
+import {christmasify, rainbowify, RWBify } from '../components/TextIterator';
 
 
 export default function Home() {
@@ -64,6 +64,16 @@ export default function Home() {
 
                                   navigator.clipboard.writeText(christmasOutput);
                                   console.log(christmasOutput);
+                              }} >
+                          Christmasify!
+                      </Button>
+                      <Button variant={"contained"} color={"primary"}
+                              onClick={()=>{
+                                  let RWBOutput = RWBify(input);
+                                  setOutput(RWBOutput)
+
+                                  navigator.clipboard.writeText(RWBOutput);
+                                  console.log(RWBOutput);
                               }} >
                           Christmasify!
                       </Button>

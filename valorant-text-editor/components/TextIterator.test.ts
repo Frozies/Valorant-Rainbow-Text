@@ -1,4 +1,4 @@
-import {rainbowify, christmasify} from './TextIterator'
+import {rainbowify, christmasify, RWBify} from './TextIterator'
 
 describe('Test the color iterator functions', () => {
 
@@ -15,6 +15,14 @@ describe('Test the color iterator functions', () => {
         let inputColor = "Testing!"
         let outputColor = christmasify(inputColor)
         let expectedColor = "<enemy>T</><notification>e</><enemy>s</><notification>t</><enemy>i</><notification>n</><enemy>g</><notification>!</>"
+
+        expect(outputColor).toBe(expectedColor);
+    })
+
+    test('RWB Color Conversion Test', ()=> {
+        let inputColor = "Testing!"
+        let outputColor = RWBify(inputColor)
+        let expectedColor = "<enemy>T</>e<team>s</><enemy>t</>i<team>n</><enemy>g</>!"
 
         expect(outputColor).toBe(expectedColor);
     })
