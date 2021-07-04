@@ -2,7 +2,7 @@ import styles from '../styles/Home.module.css';
 import React, {useEffect, useState} from "react";
 import AdsenseWidget from "../components/AdsenseWidget";
 import {Button, Container, Grid, TextField} from "@material-ui/core";
-import {christmasify, rainbowify, RWBify } from '../components/TextIterator';
+import {christmasify, northernify, rainbowify, RWBify } from '../components/TextIterator';
 
 
 export default function Home() {
@@ -77,7 +77,20 @@ export default function Home() {
                               }} >
                           Red, White, & Blue
                       </Button>
+
+                      <Button variant={"contained"} color={"primary"}
+                              onClick={()=>{
+                                  let northernOutput = northernify(input);
+                                  setOutput(northernOutput)
+
+                                  navigator.clipboard.writeText(northernOutput);
+                                  console.log(northernOutput);
+                              }} >
+                          Aurora
+                      </Button>
                   </Grid>
+
+
 
 
               </div>

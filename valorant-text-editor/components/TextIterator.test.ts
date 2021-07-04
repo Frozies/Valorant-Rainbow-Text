@@ -1,4 +1,4 @@
-import {rainbowify, christmasify, RWBify} from './TextIterator'
+import {rainbowify, christmasify, RWBify, northernify} from './TextIterator'
 
 describe('Test the color iterator functions', () => {
 
@@ -25,6 +25,14 @@ describe('Test the color iterator functions', () => {
         let expectedColor = "<enemy>T</>e<team>s</><enemy>t</>i<team>n</><enemy>g</>!"
 
         expect(outputColor).toBe(expectedColor);
+    })
+
+    test('Northern Light Test', () => {
+        let inputText = "Northern Light"
+        let outputText = northernify(inputText)
+        let expectedText = "<team>N</><warning>o</><notification>r</><team>t</><warning>h</><notification>e</><team>r</><warning>n</> <notification>L</><team>i</><warning>g</><notification>h</><team>t</>"
+
+        expect(outputText).toBe(expectedText);
     })
 })
 

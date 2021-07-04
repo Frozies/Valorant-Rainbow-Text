@@ -113,6 +113,42 @@ export function RWBify(text: String) {
     return output
 }
 
+export function northernify(text: String) {
+    let min = 0
+    let max = 2
+    let count = 0
+    let output = "";
+
+    for (let i in text) {
+        if (text[i] == " ") {
+            output = output + text[i]
+            continue
+        }
+
+        //blue
+        if (count == 0) {
+            output = output + "<team>" + text[i] + "</>"
+            count += 1
+            continue
+        }
+
+        //purple
+        if (count == 1) {
+            output = output + "<warning>" + text[i] + "</>"
+            count += 1
+            continue
+        }
+
+        //green
+        if (count == 2) {
+            output = output + "<notification>" + text[i] + "</>"
+            count = 0
+            continue
+        }
+    }
+    return output
+}
+
 function colorText(inputText: { [x: string]: string; }, [colors]: [string]) {
     let min = 0
     let max = colors.length //-1?
@@ -172,4 +208,4 @@ export function TextIterator(inputColor: string) {
     )
 }
 
-module.exports.default = [TextIterator, rainbowify(new String), christmasify(new String), RWBify(new String)]
+module.exports.default = [TextIterator, rainbowify(new String), christmasify(new String), RWBify(new String), northernify(new String)]
