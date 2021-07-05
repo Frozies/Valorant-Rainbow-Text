@@ -97,7 +97,7 @@ export default function Home() {
                                   navigator.clipboard.writeText(honeybeeOutput);
                                   console.log(honeybeeOutput);
                               }} >
-                          Honey Bee
+                          Honey Suckle
                       </Button>
                   </Grid>
 
