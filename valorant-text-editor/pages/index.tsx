@@ -2,7 +2,7 @@ import styles from '../styles/Home.module.css';
 import React, {useEffect, useState} from "react";
 import AdsenseWidget from "../components/AdsenseWidget";
 import {Button, Container, Grid, TextField} from "@material-ui/core";
-import {christmasify, northernify, rainbowify, RWBify } from '../components/TextIterator';
+import {christmasify, honeybeeify, northernify, rainbowify, RWBify } from '../components/TextIterator';
 
 
 export default function Home() {
@@ -87,6 +87,17 @@ export default function Home() {
                                   console.log(northernOutput);
                               }} >
                           Aurora
+                      </Button>
+
+                      <Button variant={"contained"} color={"primary"}
+                              onClick={()=>{
+                                  let honeybeeOutput = honeybeeify(input);
+                                  setOutput(honeybeeOutput)
+
+                                  navigator.clipboard.writeText(honeybeeOutput);
+                                  console.log(honeybeeOutput);
+                              }} >
+                          Honey Bee
                       </Button>
                   </Grid>
 

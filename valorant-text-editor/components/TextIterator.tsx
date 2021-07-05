@@ -149,6 +149,36 @@ export function northernify(text: String) {
     return output
 }
 
+export function honeybeeify(text: String) {
+    let min = 0
+    let max = 1
+    let count = 0
+    let output = "";
+
+    for (let i in text) {
+        if (text[i] == " ") {
+            output = output + text[i]
+            continue
+        }
+
+        //orange
+        if (count == 0) {
+            output = output + "<system>" + text[i] + "</>"
+            count += 1
+            continue
+        }
+
+        //yellow
+        if (count == 1) {
+            output = output + "<self>" + text[i] + "</>"
+            count = 0
+            continue
+        }
+    }
+    return output
+}
+
+
 function colorText(inputText: { [x: string]: string; }, [colors]: [string]) {
     let min = 0
     let max = colors.length //-1?
@@ -208,4 +238,4 @@ export function TextIterator(inputColor: string) {
     )
 }
 
-module.exports.default = [TextIterator, rainbowify(new String), christmasify(new String), RWBify(new String), northernify(new String)]
+module.exports.default = [TextIterator, rainbowify(new String), christmasify(new String), RWBify(new String), northernify(new String), honeybeeify(new String)]
